@@ -582,6 +582,149 @@ export const ResultsView = ({ results, onRetry }: ResultsViewProps) => {
           Dados processados localmente · nenhum vídeo foi armazenado
         </p>
 
+        {/* ── 3.5 ORQUESTRAÇÃO IMPULSO+ ── */}
+        <section
+          aria-labelledby="orchestration-title"
+          style={{ marginTop: 56, marginBottom: 40 }}
+        >
+          <div style={{ textAlign: "center", marginBottom: 28 }}>
+            <span
+              style={{
+                fontFamily: "var(--mono)",
+                fontSize: 10,
+                letterSpacing: "0.28em",
+                textTransform: "uppercase",
+                color: "var(--cyan)",
+              }}
+            >
+              Bio-performance corporativa
+            </span>
+            <h2
+              id="orchestration-title"
+              style={{
+                fontFamily: "var(--serif)",
+                fontSize: "clamp(24px, 3.4vw, 34px)",
+                lineHeight: 1.2,
+                color: "var(--ink)",
+                margin: "10px 0 12px",
+                fontWeight: 400,
+              }}
+            >
+              A Impulso+{" "}
+              <span style={{ color: "var(--cyan)", fontStyle: "italic" }}>orquestra</span>{" "}
+              cada sinal do seu corpo.
+            </h2>
+            <p
+              style={{
+                fontFamily: "var(--serif)",
+                fontStyle: "italic",
+                fontSize: "clamp(14px, 1.8vw, 17px)",
+                lineHeight: 1.55,
+                color: "var(--muted)",
+                maxWidth: 640,
+                margin: "0 auto",
+              }}
+            >
+              FaceScan é só o começo. Integramos exames, wearables e composição corporal em uma
+              única leitura — para gerar análises reais e melhorias contínuas.
+            </p>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+              gap: 14,
+              marginBottom: 22,
+            }}
+          >
+            {[
+              {
+                tag: "Composição corporal",
+                title: "InBody & bioimpedância",
+                desc: "Massa magra, gordura e hidratação sincronizadas ao seu painel.",
+              },
+              {
+                tag: "Exames clínicos",
+                title: "Laudos & check-ups",
+                desc: "Importação de PDFs e laudos médicos para contexto completo.",
+              },
+              {
+                tag: "Bioquímica",
+                title: "Exames de sangue",
+                desc: "Glicemia, lipídios, hormônios e marcadores inflamatórios.",
+              },
+              {
+                tag: "Tempo real",
+                title: "Wearables",
+                desc: "Apple Watch, Garmin, Oura, Whoop e demais dispositivos.",
+              },
+            ].map((c) => (
+              <div
+                key={c.title}
+                style={{
+                  border: "1px solid var(--cyan-border)",
+                  background: "var(--cyan-soft)",
+                  borderRadius: 14,
+                  padding: "18px 18px 20px",
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: "var(--mono)",
+                    fontSize: 9.5,
+                    letterSpacing: "0.22em",
+                    textTransform: "uppercase",
+                    color: "var(--cyan)",
+                    marginBottom: 10,
+                  }}
+                >
+                  {c.tag}
+                </div>
+                <div
+                  style={{
+                    fontFamily: "var(--serif)",
+                    fontSize: 18,
+                    color: "var(--ink)",
+                    marginBottom: 6,
+                  }}
+                >
+                  {c.title}
+                </div>
+                <div
+                  style={{
+                    fontFamily: "var(--sans, Inter, system-ui)",
+                    fontSize: 13.5,
+                    lineHeight: 1.5,
+                    color: "var(--muted)",
+                  }}
+                >
+                  {c.desc}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div
+            style={{
+              border: "1px dashed var(--cyan-border)",
+              borderRadius: 14,
+              padding: "18px 22px",
+              textAlign: "center",
+              fontFamily: "var(--serif)",
+              fontStyle: "italic",
+              fontSize: "clamp(13px, 1.6vw, 15px)",
+              lineHeight: 1.6,
+              color: "var(--ink)",
+            }}
+          >
+            Cada fonte vira um sinal. Cada sinal vira uma decisão.{" "}
+            <span style={{ color: "var(--cyan)", fontStyle: "normal", fontWeight: 500 }}>
+              Análise real, melhoria contínua.
+            </span>
+          </div>
+        </section>
+
         {/* ── 4. ANÁLISE COMPLETA ── */}
         <section id="result-details" className="result-details">
           <h2>
