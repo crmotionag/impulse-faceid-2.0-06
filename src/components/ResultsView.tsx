@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { ScanResults } from "@/lib/shenai";
-import { ShareCard } from "./ShareCard";
+// ShareCard removido temporariamente — depende do sistema de faixas (belt) que
+// saiu do ResultsView. Reativar quando o componente for refatorado sem belt.
+// import { ShareCard } from "./ShareCard";
 
 interface ResultsViewProps {
   results: ScanResults;
@@ -138,16 +140,6 @@ export const ResultsView = ({ results, onRetry }: ResultsViewProps) => {
   const RING_CIRC = 722; // matches reference dasharray
   const ringOffset = RING_CIRC * (1 - animatedScore / 100);
 
-  const [shareOpen, setShareOpen] = useState(false);
-  const [fullName, setFullName] = useState("");
-  useEffect(() => {
-    try {
-      setFullName(sessionStorage.getItem("impulso:fullName") ?? "");
-    } catch {
-      /* ignore */
-    }
-  }, []);
-
   // Dispara webhook do Make UMA ÚNICA VEZ ao montar — adicional ao
   // fluxo existente (send-lead → Supabase + Notion + Apollo).
   const webhookFiredRef = useRef(false);
@@ -272,7 +264,7 @@ export const ResultsView = ({ results, onRetry }: ResultsViewProps) => {
     <div className="px-5 py-12 lg:px-10 lg:py-16">
       <div className="result-inner">
         {/* ── 1. HERO ── */}
-        <span className="tag">Seu score de saúde · agora</span>
+        <span className="tag">Seu Face-Scan · agora</span>
         <h1>
           Você está na<span className="it">…</span>{" "}
           <span
@@ -308,10 +300,62 @@ export const ResultsView = ({ results, onRetry }: ResultsViewProps) => {
             </svg>
             <div className="center">
               <span className="n">{Math.round(animatedScore)}</span>
-              <span className="lbl">Impulso+ Score</span>
+              <span className="lbl">Face-Scan · 60s</span>
             </div>
           </div>
         </div>
+
+        {/* ── 1.5 DISCLAIMER · pivô narrativo (Brincadeira → Real) ── */}
+        <aside
+          aria-label="O que vem depois do Face-Scan"
+          style={{
+            maxWidth: 720,
+            margin: "8px auto 36px",
+            padding: "20px 24px",
+            border: "1px dashed rgba(255,255,255,0.18)",
+            borderRadius: 14,
+            background: "rgba(2,148,232,0.04)",
+            textAlign: "center",
+          }}
+        >
+          <p
+            style={{
+              fontFamily: "var(--mono)",
+              fontSize: 11,
+              letterSpacing: "0.22em",
+              textTransform: "uppercase",
+              color: "var(--cyan)",
+              margin: "0 0 10px",
+            }}
+          >
+            Antes que você ache que terminou
+          </p>
+          <p
+            style={{
+              fontFamily: "var(--serif)",
+              fontSize: "clamp(17px, 2vw, 19px)",
+              lineHeight: 1.55,
+              color: "var(--ink)",
+              margin: "0 0 8px",
+            }}
+          >
+            Foi divertido? Foi. Mas <em>isso</em> é um teaser de 60 segundos.
+          </p>
+          <p
+            style={{
+              fontFamily: "var(--sans)",
+              fontSize: 14,
+              lineHeight: 1.6,
+              color: "var(--muted)",
+              margin: "0 auto",
+              maxWidth: 580,
+            }}
+          >
+            O Score que cabe no P&amp;L do seu time é diário, contínuo e roda no
+            time inteiro — não na câmera de uma pessoa. Em instantes você recebe
+            um email da gente com o que vem por aí.
+          </p>
+        </aside>
 
         {/* ── 2. METRIC GRID (.rm cards) ── */}
         <div className="result-grid">
@@ -369,139 +413,9 @@ export const ResultsView = ({ results, onRetry }: ResultsViewProps) => {
           )}
         </div>
 
-        {/* ── 2.5 SCORE COMPLETO · COMPLEMENTARES ── */}
-        <section
-          aria-label="Composição do Score de Saúde Metabólica"
-          style={{ maxWidth: 880, margin: "8px auto 40px", padding: "0 4px" }}
-        >
-          {/* Barra de progresso */}
-          <div style={{ marginBottom: 28 }}>
-            <div
-              style={{
-                position: "relative",
-                width: "100%",
-                height: 10,
-                borderRadius: 999,
-                background: "transparent",
-                border: "1px dashed rgba(255,255,255,0.14)",
-                overflow: "hidden",
-              }}
-            >
-              <div
-                style={{
-                  width: "13%",
-                  height: "100%",
-                  background: "var(--cyan)",
-                  borderRadius: 999,
-                  boxShadow: "0 0 12px rgba(2,148,232,0.5)",
-                }}
-              />
-            </div>
-            <p
-              style={{
-                marginTop: 12,
-                fontFamily: "var(--mono)",
-                fontSize: 11,
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "var(--muted)",
-                textAlign: "center",
-              }}
-            >
-              Este scan representa{" "}
-              <span style={{ color: "var(--cyan)", fontWeight: 600 }}>13%</span>{" "}
-              do seu Score de Saúde Metabólica
-            </p>
-            <p
-              style={{
-                marginTop: 6,
-                fontFamily: "var(--mono)",
-                fontSize: 10,
-                letterSpacing: "0.16em",
-                textTransform: "uppercase",
-                color: "var(--muted)",
-                textAlign: "center",
-                opacity: 0.75,
-              }}
-            >
-              Score proprietário · desenvolvido em parceria com especialistas médicos
-            </p>
-          </div>
-
-          {/* Título */}
-          <h3
-            style={{
-              fontFamily: "var(--serif)",
-              fontWeight: 400,
-              fontSize: "clamp(28px, 4vw, 40px)",
-              lineHeight: 1.1,
-              letterSpacing: "-0.02em",
-              textAlign: "center",
-              color: "var(--ink)",
-              margin: "0 0 24px",
-            }}
-          >
-            E os outros{" "}
-            <span style={{ color: "var(--cyan)", fontStyle: "italic" }}>87%</span>?
-          </h3>
-
-          {/* Grid 2 colunas com complementares */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(2, 1fr)",
-              gap: 18,
-              marginBottom: 28,
-            }}
-          >
-            <div className="rm">
-              <div className="rm-head">
-                <span className="l">🔬 Exame de Sangue</span>
-              </div>
-              <div className="v" style={{ fontSize: 18 }}>
-                Biomarcadores
-                <span className="u">completos</span>
-              </div>
-            </div>
-            <div className="rm">
-              <div className="rm-head">
-                <span className="l">⌚ Impulso Band 24/7</span>
-              </div>
-              <div className="v" style={{ fontSize: 18 }}>
-                Monitoramento
-                <span className="u">contínuo</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Frase de destaque */}
-          <div
-            style={{
-              border: "1px solid var(--cyan-border)",
-              background: "var(--cyan-soft)",
-              borderRadius: 14,
-              padding: "20px 24px",
-              textAlign: "center",
-              fontFamily: "var(--serif)",
-              fontSize: "clamp(16px, 2.2vw, 20px)",
-              lineHeight: 1.5,
-              color: "var(--ink)",
-              fontStyle: "italic",
-              boxShadow: "0 0 24px rgba(2,148,232,0.08) inset",
-            }}
-          >
-            Se em 30 segundos com a câmera do seu celular chegamos até aqui,
-            imagine o que podemos fazer com os{" "}
-            <span style={{ color: "var(--cyan)", fontStyle: "normal", fontWeight: 500 }}>
-              87% restantes
-            </span>
-            .
-          </div>
-        </section>
-
         {/* ── 2.6 INDIVIDUAL → CORPORATIVO ── */}
         <section
-          aria-label="Score individual versus equipe"
+          aria-label="Sua leitura versus seu time"
           style={{ maxWidth: 880, margin: "8px auto 40px", padding: "0 4px" }}
         >
           <h3
@@ -516,10 +430,10 @@ export const ResultsView = ({ results, onRetry }: ResultsViewProps) => {
               margin: "0 0 10px",
             }}
           >
-            Seu score é{" "}
+            Sua leitura foi{" "}
             <span style={{ color: "var(--cyan)", fontWeight: 500 }}>{score}</span>.{" "}
             <span style={{ color: "var(--cyan)", fontStyle: "italic" }}>
-              E o da sua equipe?
+              E a do seu time?
             </span>
           </h3>
 
@@ -534,7 +448,7 @@ export const ResultsView = ({ results, onRetry }: ResultsViewProps) => {
               margin: "0 0 22px",
             }}
           >
-            Score individual · 1 pessoa · 30 segundos
+            Face-Scan · 1 pessoa · 60 segundos
           </p>
 
           <p
@@ -647,14 +561,6 @@ export const ResultsView = ({ results, onRetry }: ResultsViewProps) => {
           <button type="button" className="ghost" onClick={onRetry}>
             Fazer novo scan
           </button>
-          <button
-            type="button"
-            className="ghost"
-            onClick={() => setShareOpen(true)}
-            style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
-          >
-            <span aria-hidden>↑</span> Compartilhar resultado
-          </button>
         </div>
 
         <p
@@ -698,14 +604,6 @@ export const ResultsView = ({ results, onRetry }: ResultsViewProps) => {
           })}
         </section>
       </div>
-
-      <ShareCard
-        open={shareOpen}
-        onClose={() => setShareOpen(false)}
-        score={score}
-        belt={belt}
-        fullName={fullName}
-      />
     </div>
   );
 };
