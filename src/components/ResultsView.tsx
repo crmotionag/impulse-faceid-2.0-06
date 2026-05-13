@@ -534,16 +534,37 @@ export const ResultsView = ({ results, onRetry }: ResultsViewProps) => {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                display: "inline-block",
-                color: "var(--cyan)",
-                textDecoration: "underline",
-                textUnderlineOffset: 4,
-                fontFamily: "var(--serif)",
-                fontSize: "clamp(14px, 1.8vw, 16px)",
-                lineHeight: 1.5,
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 8,
+                padding: "14px 24px",
+                background: "var(--cyan)",
+                color: "#0A0A0A",
+                borderRadius: 999,
+                textDecoration: "none",
+                fontFamily: "var(--sans, Inter, system-ui)",
+                fontWeight: 600,
+                fontSize: "clamp(13px, 1.6vw, 15px)",
+                lineHeight: 1.3,
+                letterSpacing: "0.01em",
+                boxShadow: "0 0 24px rgba(2,148,232,0.35)",
+                transition: "transform .2s ease, box-shadow .2s ease, filter .2s ease",
+                maxWidth: "100%",
+                textAlign: "center",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-1px)";
+                e.currentTarget.style.filter = "brightness(1.08)";
+                e.currentTarget.style.boxShadow = "0 0 32px rgba(2,148,232,0.5)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "";
+                e.currentTarget.style.filter = "";
+                e.currentTarget.style.boxShadow = "0 0 24px rgba(2,148,232,0.35)";
               }}
             >
-              Saiba como a Impulso+ pode aumentar a produtividade da sua equipe por meio da melhora da bio-performance corporativa →
+              Saiba como a Impulso+ pode aumentar a produtividade da sua equipe →
             </a>
           </div>
         </section>
