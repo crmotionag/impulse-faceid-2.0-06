@@ -530,38 +530,23 @@ export const ResultsView = ({ results, onRetry }: ResultsViewProps) => {
               da sua empresa inteira.
             </p>
             <a
-              href="https://impulsomais.net"
+              href="https://calendly.com/joao-impulsomais/new-meeting"
               target="_blank"
               rel="noopener noreferrer"
-              className="primary"
               style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                textDecoration: "none",
+                display: "inline-block",
+                color: "var(--cyan)",
+                textDecoration: "underline",
+                textUnderlineOffset: 4,
+                fontFamily: "var(--serif)",
+                fontSize: "clamp(14px, 1.8vw, 16px)",
+                lineHeight: 1.5,
               }}
             >
-              Calcular impacto na minha empresa →
+              Saiba como a Impulso+ pode aumentar a produtividade da sua equipe por meio da melhora da bio-performance corporativa →
             </a>
           </div>
         </section>
-
-        {/* ── 3. AÇÕES ── */}
-        <div className="result-actions">
-          <button
-            type="button"
-            className="primary"
-            onClick={() => {
-              const el = document.getElementById("result-details");
-              el?.scrollIntoView({ behavior: "smooth", block: "start" });
-            }}
-          >
-            Ver análise completa
-          </button>
-          <button type="button" className="ghost" onClick={onRetry}>
-            Fazer novo scan
-          </button>
-        </div>
 
         <p
           className="mt-6 text-center"
