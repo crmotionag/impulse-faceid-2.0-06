@@ -610,9 +610,8 @@ export const ResultsView = ({ results, onRetry }: ResultsViewProps) => {
                 fontWeight: 400,
               }}
             >
-              A Impulso+{" "}
-              <span style={{ color: "var(--cyan)", fontStyle: "italic" }}>orquestra</span>{" "}
-              cada sinal do seu corpo.
+              Cinco fontes. Um{" "}
+              <span style={{ color: "var(--cyan)", fontStyle: "italic" }}>score</span>. Zero achismo.
             </h2>
             <p
               style={{
@@ -625,48 +624,57 @@ export const ResultsView = ({ results, onRetry }: ResultsViewProps) => {
                 margin: "0 auto",
               }}
             >
-              FaceScan é só o começo. Integramos exames, wearables e composição corporal em uma
-              única leitura — para gerar análises reais e melhorias contínuas.
+              Performance humana não cabe em um único sensor. A Impulso+ integra dados que, hoje,
+              vivem em silos — e os transforma em uma leitura única de capacidade decisória,
+              energia e recuperação.
             </p>
           </div>
 
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
               gap: 14,
               marginBottom: 22,
             }}
           >
             {[
               {
+                tag: "Wearable Impulso+",
+                title: "Nosso wearable proprietário",
+                desc: "Hardware desenhado pela Impulso+ para captura contínua de sinais fisiológicos com precisão clínica — base da nossa leitura de bio-performance.",
+              },
+              {
+                tag: "Wearables conectados",
+                title: "Apple Watch, Whoop, Oura & smart rings",
+                desc: "Sono, recuperação, HRV e carga fisiológica em tempo real, sem fricção pro colaborador.",
+              },
+              {
                 tag: "Composição corporal",
-                title: "InBody & bioimpedância",
-                desc: "Massa magra, gordura e hidratação sincronizadas ao seu painel.",
+                title: "InBody e bioimpedância",
+                desc: "Massa magra, gordura visceral, água corporal e ângulo de fase plugados direto no perfil. Importação automática a cada avaliação.",
               },
               {
                 tag: "Exames clínicos",
-                title: "Laudos & check-ups",
-                desc: "Importação de PDFs e laudos médicos para contexto completo.",
+                title: "Laboratoriais e laudos",
+                desc: "Hemograma, perfil lipídico, hormonal, metabólico e inflamatório. Upload por PDF ou integração com laboratório parceiro — leitura estruturada e comparação histórica.",
               },
               {
-                tag: "Bioquímica",
-                title: "Exames de sangue",
-                desc: "Glicemia, lipídios, hormônios e marcadores inflamatórios.",
-              },
-              {
-                tag: "Tempo real",
-                title: "Wearables",
-                desc: "Apple Watch, Garmin, Oura, Whoop e demais dispositivos.",
+                tag: "Sinais subjetivos",
+                title: "Humor, energia e hidratação",
+                desc: "Capturados em micro-interações que não atrapalham o expediente — o lado humano que nenhum sensor lê sozinho.",
               },
             ].map((c) => (
               <div
                 key={c.title}
                 style={{
                   border: "1px solid var(--cyan-border)",
-                  background: "var(--cyan-soft)",
+                  background: "rgba(2,148,232,0.06)",
+                  backdropFilter: "blur(12px)",
+                  WebkitBackdropFilter: "blur(12px)",
                   borderRadius: 14,
                   padding: "18px 18px 20px",
+                  boxShadow: "0 1px 0 rgba(255,255,255,0.04) inset, 0 8px 24px rgba(0,0,0,0.18)",
                 }}
               >
                 <div
