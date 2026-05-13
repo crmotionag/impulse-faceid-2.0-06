@@ -669,9 +669,12 @@ export const ResultsView = ({ results, onRetry }: ResultsViewProps) => {
                 key={c.title}
                 style={{
                   border: "1px solid var(--cyan-border)",
-                  background: "var(--cyan-soft)",
+                  background: "rgba(2,148,232,0.06)",
+                  backdropFilter: "blur(12px)",
+                  WebkitBackdropFilter: "blur(12px)",
                   borderRadius: 14,
                   padding: "18px 18px 20px",
+                  boxShadow: "0 1px 0 rgba(255,255,255,0.04) inset, 0 8px 24px rgba(0,0,0,0.18)",
                 }}
               >
                 <div
