@@ -84,6 +84,36 @@ export const Hero = ({ onStart }: HeroProps) => {
           <div className="cta-meta">
             <b>60s</b> <span className="dot" /> no navegador <span className="dot" /> sem cadastro
           </div>
+          <a
+            className="hero-cta-secondary"
+            href={import.meta.env.VITE_CALENDAR_URL || "https://impulsomais.app/agenda"}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              marginTop: 14,
+              fontSize: 13,
+              color: "var(--muted)",
+              textDecoration: "none",
+              borderBottom: "1px solid rgba(255,255,255,0.12)",
+              paddingBottom: 2,
+              alignSelf: "flex-start",
+              transition: "color 0.2s, border-color 0.2s",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = "var(--cyan)";
+              e.currentTarget.style.borderBottomColor = "var(--cyan-border)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = "var(--muted)";
+              e.currentTarget.style.borderBottomColor = "rgba(255,255,255,0.12)";
+            }}
+          >
+            Já quer falar? Agenda 20 min
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
 
@@ -161,7 +191,7 @@ export const Hero = ({ onStart }: HeroProps) => {
 
         <div className="readout r3">
           <div>
-            <span className="l">Score</span>
+            <span className="l">Leitura</span>
             <span className="v" id="h-score">
               {score}
             </span>
@@ -197,7 +227,7 @@ export const Hero = ({ onStart }: HeroProps) => {
             <span className="it">&gt;</span>
             <span className="hl">95%</span>
           </div>
-          <div className="l">Precisão clínica (rPPG)</div>
+          <div className="l">Precisão da leitura (rPPG)</div>
         </div>
       </div>
     </section>

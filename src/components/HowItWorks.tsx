@@ -56,10 +56,11 @@ export const HowItWorks = () => {
               <div className="ring-num">84</div>
             </div>
           </div>
-          <h3>Seu score, pronto.</h3>
+          <h3>Sua leitura, pronta.</h3>
           <p>
-            Em 60 segundos você recebe seu Score de Saúde com todos os sinais
-            captados. Simples assim.
+            Em 60 segundos a câmera lê seus sinais e te mostra o resultado. O
+            resto — o que cabe no P&amp;L do seu time — a gente te conta por
+            email.
           </p>
         </div>
       </div>

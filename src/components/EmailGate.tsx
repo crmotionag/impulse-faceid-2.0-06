@@ -123,14 +123,15 @@ export const EmailGate = ({ results, onUnlock }: EmailGateProps) => {
 
   return (
     <div className="scan-contact-block">
-      <span className="tag">Resultado pronto</span>
+      <span className="tag">Leitura pronta</span>
       <h2>
-        Seu relatório <span className="it">está</span>{" "}
-        <span className="hl">pronto.</span>
+        Sua leitura <span className="it">está</span>{" "}
+        <span className="hl">pronta.</span>
       </h2>
       <p>
-        Preencha seus dados para receber o relatório completo por email. Seus
-        dados são tratados conforme a LGPD.
+        Deixa seus dados aqui que a gente te manda — junto com o que essa
+        leitura vira de verdade no P&amp;L do seu time. Sem spam. LGPD na
+        arquitetura, não na cláusula.
       </p>
 
       <form onSubmit={handleSubmit} className="contact-form">
@@ -209,7 +210,7 @@ export const EmailGate = ({ results, onUnlock }: EmailGateProps) => {
               Enviando…
             </>
           ) : (
-            "Receber relatório"
+            "Ver minha leitura"
           )}
         </button>
 

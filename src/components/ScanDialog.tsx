@@ -295,7 +295,7 @@ export const ScanDialog = ({ open, onOpenChange }: ScanDialogProps) => {
                   </h2>
                   <p>
                     Você vai ficar parado por 60 segundos, olhando pra câmera.
-                    Em seguida recebe seu score completo.
+                    Em seguida você vê o que ela leu.
                   </p>
                   <div className="tips">
                     <span>

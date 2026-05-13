@@ -10,12 +10,13 @@ export const Metrics = () => {
       <div className="sec-head">
         <span className="sec-tag">O que medimos</span>
         <h2 className="sec-h2">
-          Seis sinais. <span className="it">De grau</span>{" "}
-          <span className="hl">clínico.</span>
+          Seis sinais. <span className="it">Em</span>{" "}
+          <span className="hl">60 segundos.</span>
         </h2>
         <p className="sec-sub">
           Todos extraídos simultaneamente a partir de micro-variações na sua
-          pele — os mesmos sinais que um hospital mede, sem encostar em você.
+          pele — a mesma tecnologia que roda em ambiente clínico, simplificada
+          pra caber num scan de teaser.
         </p>
       </div>
       <div className="metrics-grid">
