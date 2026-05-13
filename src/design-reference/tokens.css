@@ -1,0 +1,168 @@
+/* ────────────────────────────────────────────────────────────────
+   IMPULSO+ DESIGN TOKENS
+   Extraído do site/apresentações oficiais da Impulso+
+   Fontes: Syne (display) + DM Sans (body) — Google Fonts
+   ──────────────────────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* ── BRAND / PRIMARY ─────────────────────────────── */
+  --blue:         #0294e8;      /* Cyan primário — logo, CTAs, score bom */
+  --blue-dim:     #0284d0;      /* Hover / pressed */
+  --blue-bright:  #38bdf8;      /* Gradiente, highlights */
+  --blue-glow:    rgba(2,148,232,0.15);
+  --blue-border:  rgba(2,148,232,0.25);
+
+  /* ── DARK SURFACES (uso principal) ────────────────── */
+  --dark:     #080c14;   /* Fundo base, mais escuro */
+  --dark2:    #0d1220;   /* Cards, surfaces */
+  --dark3:    #131929;   /* Surface elevada / hover */
+  --dark4:    #1a2035;   /* Elevação máxima */
+  --surface:  #1e2540;   /* Input backgrounds */
+
+  /* ── BORDERS ──────────────────────────────────────── */
+  --border:       rgba(255,255,255,0.07);
+  --border-soft:  rgba(255,255,255,0.04);
+  --border-hover: rgba(255,255,255,0.15);
+
+  /* ── TEXT (sobre fundo dark) ──────────────────────── */
+  --text:     #f0f4ff;   /* Títulos, body principal */
+  --text2:    #8b96b0;   /* Body secundário, legendas */
+  --text3:    #5a6478;   /* Dates, labels quietos */
+  --white:    #ffffff;
+
+  /* ── SEMANTIC ─────────────────────────────────────── */
+  --red:      #ef4444;   /* Perdas, alertas, custos */
+  --amber:    #f59e0b;   /* Atenção, follow-up, médio */
+  --green:    #10b981;   /* Economia, ROI, check */
+
+  --red-soft:   rgba(239,68,68,0.15);
+  --amber-soft: rgba(245,158,11,0.15);
+  --green-soft: rgba(16,185,129,0.15);
+
+  /* ── FAIXAS (Score Impulso+ — 0–100) ──────────────── */
+  --faixa-branca:  #ffffff;   /* 0–40   · risco alto */
+  --faixa-azul:    #0294e8;   /* 41–55  · atenção */
+  --faixa-roxa:    #a855f7;   /* 56–70  · bom */
+  --faixa-marrom:  #92400e;   /* 71–85  · muito bom */
+  --faixa-preta:   #111827;   /* 86–100 · elite */
+
+  /* ── TYPE SCALE ───────────────────────────────────── */
+  --font-display: 'Syne', ui-sans-serif, system-ui, sans-serif;
+  --font-body:    'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+
+  --fs-display:  clamp(48px, 7vw, 96px);   /* Hero de slide */
+  --fs-h1:       clamp(36px, 5vw, 64px);   /* Title slide */
+  --fs-h2:       clamp(28px, 3.5vw, 48px); /* Section title */
+  --fs-h3:       22px;
+  --fs-h4:       16px;
+  --fs-body:     15px;
+  --fs-sm:       13px;
+  --fs-xs:       11px;
+  --fs-micro:    9px;
+
+  /* ── SPACING ──────────────────────────────────────── */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+
+  /* ── RADIUS ───────────────────────────────────────── */
+  --r-sm:   6px;   /* Tags, code pills, inputs */
+  --r-md:   10px;  /* Buttons */
+  --r-lg:   14px;  /* Cards */
+  --r-xl:   20px;  /* Large surfaces */
+  --r-pill: 100px; /* Badges, pills */
+
+  /* ── SHADOW / ELEVATION ───────────────────────────── */
+  --shadow-sm:  0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md:  0 16px 40px rgba(0,0,0,0.4);
+  --shadow-lg:  0 32px 64px rgba(0,0,0,0.6);
+  --shadow-glow: 0 0 20px rgba(2,148,232,0.3);
+  --shadow-cta: 0 8px 24px rgba(2,148,232,0.3);
+
+  /* ── LETTERING ─────────────────────────────────────── */
+  --tracking-tight:   -0.03em;  /* Display */
+  --tracking-normal:  -0.02em;  /* H2 */
+  --tracking-wide:    0.06em;   /* Section tags, labels uppercase */
+  --tracking-xwide:   0.1em;    /* Tiny labels */
+}
+
+/* ────────────────────────────────────────────────────────────────
+   SEMANTIC CLASSES
+   ──────────────────────────────────────────────────────────────── */
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h1);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-tight);
+  color: var(--white);
+}
+
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h2);
+  line-height: 1.1;
+  letter-spacing: var(--tracking-normal);
+  color: var(--white);
+}
+
+h3, .h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h3);
+  color: var(--white);
+}
+
+h4, .h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h4);
+  color: var(--white);
+}
+
+p, .body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--text2);
+  line-height: 1.7;
+}
+
+.eyebrow, .section-tag {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-xwide);
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+code, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+.accent-gradient {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-bright) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

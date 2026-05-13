@@ -1,0 +1,31 @@
+{
+  "name": "shenai-sdk",
+  "version": "3.0.9",
+  "description": "Shen.ai Web SDK",
+  "type": "module",
+  "main": "index.mjs",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "default": "./index.mjs"
+    },
+    "./enums/index.js": "./enums/index.js",
+    "./enums/init.js": "./enums/init.js",
+    "./util/index.mjs": "./util/index.mjs",
+    "./shenai_sdk.mjs": "./shenai_sdk.mjs",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.mjs",
+    "index.d.ts",
+    "shenai_sdk.mjs",
+    "shenai_sdk.wasm",
+    "util",
+    "enums"
+  ],
+  "license": "UNLICENSED",
+  "private": true
+}

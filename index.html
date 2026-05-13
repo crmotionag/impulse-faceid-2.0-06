@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt-BR" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Impulso+ FaceScan — Sinais vitais em 60 segundos pela câmera</title>
+    <meta name="description" content="Meça frequência cardíaca, pressão, SpO2, HRV e idade biológica em 1 minuto pela câmera do celular. Tecnologia rPPG by Shen.AI integrada à Impulso+.">
+    <meta name="author" content="Impulso+" />
+    <meta name="theme-color" content="#0B0E14" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet" />
+
+    
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/3c27964c-911c-414b-83b0-2cf38b0a42c8">
+
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    
+
+    <!--
+      COI Service Worker: injects COOP/COEP headers so SharedArrayBuffer
+      (required by Shen.AI's threaded WASM) works on hosts that don't
+      set those headers themselves (e.g. Lovable preview).
+    -->
+    <script>
+      (function () {
+        if (typeof window === "undefined") return;
+        if (window.crossOriginIsolated) return;
+
+        // Skip inside iframes (Lovable preview, embeds, etc.). The COI service
+        // worker forces a reload when it activates — inside an iframe that
+        // creates a load loop and the preview never reports "ready".
+        // The Shen.AI scan is gated separately and won't run in embedded contexts.
+        try {
+          if (window.self !== window.top) return;
+        } catch (_) {
+          return;
+        }
+
+        if (!window.isSecureContext) {
+          console.warn("[coi-sw] insecure context, COOP/COEP will not work");
+          return;
+        }
+        if (!("serviceWorker" in navigator)) {
+          console.warn("[coi-sw] service workers not supported");
+          return;
+        }
+
+        var reloaded = false;
+        function reloadOnce() {
+          if (reloaded) return;
+          reloaded = true;
+          window.location.reload();
+        }
+
+        navigator.serviceWorker.addEventListener("controllerchange", reloadOnce);
+
+        navigator.serviceWorker
+          .register("/coi-serviceworker.js", { scope: "/" })
+          .then(function (reg) {
+            if (navigator.serviceWorker.controller && !window.crossOriginIsolated) {
+              reloadOnce();
+              return;
+            }
+            if (!navigator.serviceWorker.controller) {
+              var sw = reg.installing || reg.waiting || reg.active;
+              if (sw) {
+                sw.addEventListener("statechange", function () {
+                  if (sw.state === "activated") reloadOnce();
+                });
+              }
+            }
+          })
+          .catch(function (e) {
+            console.error("[coi-sw] register failed", e);
+          });
+      })();
+    </script>
+    
+  
+  
+  
+  <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/3c27964c-911c-414b-83b0-2cf38b0a42c8">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Impulso+ FaceScan — Sinais vitais em 60 segundos pela câmera">
+  <meta name="twitter:title" content="Impulso+ FaceScan — Sinais vitais em 60 segundos pela câmera">
+  <meta property="og:description" content="Meça frequência cardíaca, pressão, SpO2, HRV e idade biológica em 1 minuto pela câmera do celular. Tecnologia rPPG by Shen.AI integrada à Impulso+.">
+  <meta name="twitter:description" content="Meça frequência cardíaca, pressão, SpO2, HRV e idade biológica em 1 minuto pela câmera do celular. Tecnologia rPPG by Shen.AI integrada à Impulso+.">
+</head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Intercom -->
+    <script>
+      window.intercomSettings = {
+        api_base: "https://api-iam.intercom.io",
+        app_id: "tcfr4fm2",
+      };
+    </script>
+    <script>
+      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/tcfr4fm2';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+    </script>
+  </body>
+</html>
