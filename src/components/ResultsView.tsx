@@ -264,7 +264,7 @@ export const ResultsView = ({ results, onRetry }: ResultsViewProps) => {
     <div className="px-5 py-12 lg:px-10 lg:py-16">
       <div className="result-inner">
         {/* ── 1. HERO ── */}
-        <span className="tag">Seu Face-Scan · agora</span>
+        <span className="tag">Sua leitura · agora</span>
         <h1>
           Você está na<span className="it">…</span>{" "}
           <span
@@ -300,14 +300,14 @@ export const ResultsView = ({ results, onRetry }: ResultsViewProps) => {
             </svg>
             <div className="center">
               <span className="n">{Math.round(animatedScore)}</span>
-              <span className="lbl">Face-Scan · 60s</span>
+              <span className="lbl">Leitura · 60s</span>
             </div>
           </div>
         </div>
 
         {/* ── 1.5 DISCLAIMER · pivô narrativo (Brincadeira → Real) ── */}
         <aside
-          aria-label="O que vem depois do Face-Scan"
+          aria-label="O que vem depois desta leitura"
           style={{
             maxWidth: 720,
             margin: "8px auto 36px",
@@ -448,7 +448,7 @@ export const ResultsView = ({ results, onRetry }: ResultsViewProps) => {
               margin: "0 0 22px",
             }}
           >
-            Face-Scan · 1 pessoa · 60 segundos
+            Leitura individual · 1 pessoa · 60 segundos
           </p>
 
           <p
