@@ -17,7 +17,7 @@ export default {
         serif: ["Instrument Serif", "ui-serif", "Georgia", "serif"],
         display: ["Instrument Serif", "ui-serif", "Georgia", "serif"],
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ["JetBrains Mono", "ui-monospace", "monospace"],
+        mono: ["Geist Mono", "ui-monospace", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
